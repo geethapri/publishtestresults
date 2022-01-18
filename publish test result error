@@ -1,0 +1,31 @@
+2022-01-18T17:36:56.0587035Z ##[warning]Failed to upload file TestResults_1004462.zip to Blob Transfer exception with errorcode Unknown, exception message Microsoft.Azure.Storage.DataMovement.TransferException: The transfer failed.
+ ---> Microsoft.Azure.Storage.StorageException: Connection timed out
+ ---> System.Net.Http.HttpRequestException: Connection timed out
+ ---> System.Net.Sockets.SocketException (110): Connection timed out
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean allowHttp2, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttpConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at Microsoft.Azure.Storage.Core.Executor.Executor.ExecuteAsync[T](RESTCommand`1 cmd, IRetryPolicy policy, OperationContext operationContext, CancellationToken token)
+   --- End of inner exception stack trace ---
+   at Microsoft.Azure.Storage.DataMovement.TransferControllers.BlockBlobWriter.HandleFetchAttributesResultAsync(Exception e)
+   at Microsoft.Azure.Storage.DataMovement.TransferControllers.BlockBlobWriter.FetchAttributesAsync()
+   at Microsoft.Azure.Storage.DataMovement.TransferControllers.BlockBlobWriter.DoWorkInternalAsync()
+   at Microsoft.Azure.Storage.DataMovement.TransferControllers.SyncTransferController.DoWorkInternalAsync()
+   at Microsoft.Azure.Storage.DataMovement.TransferControllers.TransferControllerBase.DoWorkAsync()
+   at Microsoft.Azure.Storage.DataMovement.TransferScheduler.ExecuteJobInternalAsync(TransferJob job, CancellationToken cancellationToken)
+Request Information
+RequestID:
+RequestDate:
+StatusMessage:
+ErrorCode:
+
+   --- End of inner exception stack trace ---
+   at Microsoft.TeamFoundation.TestClient.PublishTestResults.TestLogStore._executeWithRetry(Func`1 action, Func`1 actionWithRename, Func`1 actionOnSasExpiry, Boolean allowDuplicate, Boolean allowRetryOnNetworkingError, TelemetryTracker telemetryTracker)
+   at Microsoft.TeamFoundation.TestClient.PublishTestResults.TestLogStore.UploadInternalAsync(Guid projectId, TestLogScope scope, Int32 buildId, Int32 runId, String logFileSourcePath, Stream stream, String fileName, TestLogType logType, Int32 testResultId, Int32 testSubResultId, Dictionary`2 metaData, TelemetryTracker telTracker, Boolean allowDuplicate, TestLogCompressionType logCompressionType, String originalFileContentType)
+2022-01-18T17:36:56.0677961Z ##[debug]Failed to Upload on log store with error code TransferFailed
